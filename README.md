@@ -18,24 +18,24 @@ Tools
 Getting Started
     
 Prerequisites   
-Python 3.x
+- Python 3.x
     
 Install dependencies:   
-pip install django flask scikit-learn tensorflow nltk spacy   
+- pip install django flask scikit-learn tensorflow nltk spacy   
     
 Steps    
 Clone the repo:    
-git clone <repository-url>    
+- git clone <repository-url>    
     
 Set up a virtual environment:    
-python -m venv env    
-source env/bin/activate  # On Windows: env\Scripts\activate    
+- python -m venv env    
+- source env/bin/activate  # On Windows: env\Scripts\activate    
     
 Run Flask API:    
-python flask_api.py    
+- python flask_api.py    
 
 Run Django app:    
-python manage.py runserver    
+- python manage.py runserver    
     
 Deployment    
 - Deploy using Docker (optional) or host on Heroku/AWS.    
@@ -43,5 +43,4 @@ Deployment
 Contributing    
 - Contributions are welcome! Open an issue or submit a PR.    
 
-License    
-- MIT License.    
+    
