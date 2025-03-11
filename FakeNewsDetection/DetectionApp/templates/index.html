@@ -1,0 +1,23 @@
+{% extends "base.html" %}  <!-- Extend base.html -->
+
+{% block title %}
+    Home - Fake News Detector
+{% endblock %}
+
+{% block content %}
+    <h1>Fake News Detector</h1>
+    <form method="post" action="{% url 'predict_news' %}">
+        {% csrf_token %}
+        <textarea name="newsText" rows="5" placeholder="Enter news text here..." required></textarea>
+        <button type="submit" class="btn btn-primary">Check News</button>
+    </form>
+
+    {% if prediction %}
+        <div class="mt-4">
+            <h2>Result:</h2>
+            <p class="{% if prediction == 'Real' %}text-success{% else %}text-danger{% endif %}">
+                {{ prediction }}
+            </p>
+        </div>
+    {% endif %}
+{% endblock %}
