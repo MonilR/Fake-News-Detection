@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Logout - Fake News Detector{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="auth-card">
+            <div class="text-center mb-4">
+                <img src="{% static 'images/logo.png' %}" alt="Fake News Detector" width="100">
+            </div>
+            <h1 class="text-center">Logout</h1>
+            <p class="text-center">Are you sure you want to log out?</p>
+            <form method="post" action="{% url 'account_logout' %}">
+                {% csrf_token %}
+                {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+                <button type="submit" class="btn btn-primary btn-block">Logout</button>
+            </form>
+            <div class="text-center mt-3">
+                <p>Changed your mind? <a href="{% url 'predict_news' %}">Go back to Home</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

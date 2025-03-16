@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Sign Up - Fake News Detector{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="auth-card">
+            <div class="text-center mb-4">
+                <img src="{% static 'images/logo.png' %}" alt="Fake News Detector" width="100">
+            </div>
+            <h1 class="text-center">Sign Up</h1>
+            <form method="post" action="{% url 'account_signup' %}">
+                {% csrf_token %}
+                {{ form.as_p }}  <!-- Render the form fields automatically -->
+                <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+            </form>
+            <div class="text-center mt-3">
+                <p>Already have an account? <a href="{% url 'account_login' %}">Log in</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

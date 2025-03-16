@@ -8,8 +8,16 @@ vectorizer = joblib.load('tfidf_vectorizer.pkl')
 
 
 def predict_fake_news(news_text):
-    # Transform the input text using the vectorizer
-    text_vectorized = vectorizer.transform([news_text])
-    # Predict using the model
-    prediction = model.predict(text_vectorized)
-    return "Real" if prediction[0] == 0 else "Fake"
+    try:
+        # Load your pre-trained model and vectorizer
+        model = joblib.load('fake_news_model.pkl')
+        vectorizer = joblib.load('tfidf_vectorizer.pkl')
+
+        # Transform the input text using the vectorizer
+        text_vectorized = vectorizer.transform([news_text])
+
+        # Predict using the model
+        prediction = model.predict(text_vectorized)
+        return "Real" if prediction[0] == 0 else "Fake"
+    except Exception as e:
+        return f"Error: {str(e)}"
