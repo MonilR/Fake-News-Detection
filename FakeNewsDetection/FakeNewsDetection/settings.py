@@ -123,7 +123,16 @@ SITE_ID = 1
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = '/static/'
+
+# Directory where static files are collected during production
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Additional directories for static files
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',  # Add your static files directory
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
