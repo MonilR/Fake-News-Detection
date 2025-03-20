@@ -3,6 +3,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .predict_news import predict_fake_news
 from .models import NewsSubmission  # Import the model
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse, JsonResponse
 
 @login_required
 @csrf_exempt
@@ -25,3 +26,6 @@ def history(request):
     # Fetch submissions for the logged-in user, ordered by most recent
     submissions = NewsSubmission.objects.filter(user=request.user).order_by('-submission_date')
     return render(request, 'history.html', {'submissions': submissions})
+
+def health_check(request):
+    return HttpResponse("OK", status=200)

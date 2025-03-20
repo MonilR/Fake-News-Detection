@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+import socket
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,8 +27,19 @@ SECRET_KEY = 'django-insecure-86fx8%qm__c565gzs-5n9!6qmxr5rg%_^0qmescw*vngxf)_gv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
+# Get the private IP of the instance
+private_ip = socket.gethostbyname(socket.gethostname())
+
+# ALLOWED_HOSTS = ['172.31.42.122','172.31.40.190',private_ip,'fake-news-detection-monilr-prod.eba-5m3ikrpm.us-west-2.elasticbeanstalk.com','localhost','127.0.0.1']
+ALLOWED_HOSTS = [private_ip,'fake-news-detection-monilr-prod.eba-5m3ikrpm.us-west-2.elasticbeanstalk.com','localhost','127.0.0.1']
+
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://fake-news-detection-monilr-prod.eba-5m3ikrpm.us-west-2.elasticbeanstalk.com',
+    'http://localhost:8000',
+]
 
 # Application definition
 
@@ -42,6 +55,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'django_ckeditor_5',
+    'django_extensions',
     'DetectionApp'
 ]
 
@@ -53,7 +67,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'allauth.account.middleware.AccountMiddleware'
+    'allauth.account.middleware.AccountMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'FakeNewsDetection.urls'
@@ -127,7 +142,8 @@ SITE_ID = 1
 STATIC_URL = '/static/'
 
 # Directory where static files are collected during production
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+# STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Additional directories for static files
 STATICFILES_DIRS = [
@@ -151,3 +167,7 @@ LOGIN_REDIRECT_URL = 'predict_news'  # Redirect to home page after login
 
 # Set the login URL
 LOGIN_URL = '/accounts/login/'  # URL for the login page
+
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+

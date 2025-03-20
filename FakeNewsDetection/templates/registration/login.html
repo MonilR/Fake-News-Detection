@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Login - Fake News Detector{% endblock %}
+
+{% block content %}
+<!-- Custom Login Template -->
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="auth-card">
+            <div class="text-center mb-4">
+                <img src="{% static 'images/logo.png' %}" alt="Fake News Detector" width="300">
+            </div>
+            <h1 class="text-center">Login</h1>
+
+
+            <!-- Check for the "next" parameter and display a custom message -->
+            {% if request.GET.next and request.GET.next != '/' %}
+            <div class="alert alert-info" role="alert">
+                You must log in to access this page.
+            </div>
+            {% endif %}
+
+
+            <form method="post" action="{% url 'account_login' %}">
+                {% csrf_token %}
+                {{ form.as_p }}  <!-- Render the form fields automatically -->
+                <input type="hidden" name="next" value="{{ request.GET.next }}" /> 
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+            <div class="text-center mt-3">
+                <p>Don't have an account? <a href="{% url 'account_signup' %}">Sign up</a></p>
+                <p><a href="{% url 'account_reset_password' %}">Forgot password?</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
