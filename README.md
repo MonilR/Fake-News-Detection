@@ -39,6 +39,9 @@ Deployment
 - Deploy using Docker (optional) or host on Heroku/AWS.    
 
 Contributing    
-- Contributions are welcome! Open an issue or submit a PR.    
+- Contributions are welcome! Open an issue or submit a PR.
+
+## License
+- This project is licensed under the GNU General Public License v3.0. See the [LICENSE](LICENSE) file for details.
 
     
