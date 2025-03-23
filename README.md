@@ -7,13 +7,13 @@ Features
 - Detect fake news/reviews from input text.
 - Web interface for user input.
 - Django backend for prediction.
-- Cloud deployment (Heroku/AWS).
+- Cloud deployment (AWS).
 - Optional: Bulk predictions via CSV upload.
     
 Tools
 - ML/NLP: Python, Scikit-learn, TensorFlow, Hugging Face.
 - Web: Django.
-- Deployment: Docker, Heroku, AWS.
+- Deployment: AWS.
     
 Getting Started
     
@@ -21,7 +21,7 @@ Prerequisites
 - Python 3.x
     
 Install dependencies:   
-- pip install django flask scikit-learn tensorflow nltk spacy   
+- pip install django scikit-learn tensorflow nltk spacy   
     
 Steps    
 Clone the repo:    
@@ -36,7 +36,7 @@ Run Django app:
 - python manage.py runserver    
     
 Deployment    
-- Deploy using Docker (optional) or host on Heroku/AWS.    
+- Host on AWS.    
 
 Contributing    
 - Contributions are welcome! Open an issue or submit a PR.
