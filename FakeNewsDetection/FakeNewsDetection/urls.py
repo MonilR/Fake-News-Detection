@@ -23,6 +23,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
+    # path('ckeditor5/', include('django_ckeditor_5.urls')),
     path("", include("DetectionApp.urls")),
     # path('accounts/login/', auth_views.LoginView.as_view(template_name='accounts/login.html'), name='login'),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

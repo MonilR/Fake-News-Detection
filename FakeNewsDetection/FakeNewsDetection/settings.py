@@ -31,8 +31,8 @@ DEBUG = True
 # Get the private IP of the instance
 private_ip = socket.gethostbyname(socket.gethostname())
 
-# ALLOWED_HOSTS = ['172.31.42.122','172.31.40.190',private_ip,'fake-news-detection-monilr-prod.eba-5m3ikrpm.us-west-2.elasticbeanstalk.com','localhost','127.0.0.1']
-ALLOWED_HOSTS = [private_ip,'fake-news-detection-monilr-prod.eba-5m3ikrpm.us-west-2.elasticbeanstalk.com','localhost','127.0.0.1']
+# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [private_ip,'ec2-35-160-185-58.us-west-2.compute.amazonaws.com','fake-news-detection-monilr-prod.eba-5m3ikrpm.us-west-2.elasticbeanstalk.com','localhost','127.0.0.1']
 
 
 
