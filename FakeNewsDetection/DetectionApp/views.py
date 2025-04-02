@@ -1,3 +1,6 @@
+
+# Author: Monil R. Prajapati
+
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from .predict_news import predict_fake_news

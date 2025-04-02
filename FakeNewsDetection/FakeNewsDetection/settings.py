@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+# Author: Monil R. Prajapati
 from pathlib import Path
 import os
 import socket
@@ -31,13 +31,12 @@ DEBUG = True
 # Get the private IP of the instance
 private_ip = socket.gethostbyname(socket.gethostname())
 
-# ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = [private_ip,'ec2-35-160-185-58.us-west-2.compute.amazonaws.com','fake-news-detection-monilr-prod.eba-5m3ikrpm.us-west-2.elasticbeanstalk.com','localhost','127.0.0.1']
-
+ALLOWED_HOSTS = [private_ip,'52.36.28.27','fake-news.eba-sgtjm2ca.us-west-2.elasticbeanstalk.com','us-west-2.elasticbeanstalk.com','localhost','127.0.0.1']
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'http://fake-news-detection-monilr-prod.eba-5m3ikrpm.us-west-2.elasticbeanstalk.com',
+    'http://fake-news.eba-sgtjm2ca.us-west-2.elasticbeanstalk.com',
+    'us-west-2.elasticbeanstalk.com',
     'http://localhost:8000',
 ]
 
@@ -169,5 +168,6 @@ LOGIN_REDIRECT_URL = 'predict_news'  # Redirect to home page after login
 LOGIN_URL = '/accounts/login/'  # URL for the login page
 
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 

@@ -14,7 +14,7 @@ def predict_fake_news(news_text):
         vectorizer = joblib.load('tfidf_vectorizer.pkl')
 
         # Transform the input text using the vectorizer
-        text_vectorized = vectorizer.transform([news_text])
+        text_vectorized = vectorizer.transform([news_text])  #Author: Monil R. Prajapati
 
         # Predict using the model
         prediction = model.predict(text_vectorized)
