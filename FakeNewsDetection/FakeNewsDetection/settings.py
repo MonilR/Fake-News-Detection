@@ -36,7 +36,7 @@ ALLOWED_HOSTS = [private_ip,'fake-news-detection-production-7284.up.railway.app'
 
 CSRF_TRUSTED_ORIGINS = [
     'http://fake-news-detection.eba-sgtjm2ca.us-west-2.elasticbeanstalk.com',
-    'fake-news-detection-production-7284.up.railway.app'
+    'https://fake-news-detection-production-7284.up.railway.app',
     'us-west-2.elasticbeanstalk.com',
     'http://localhost:8000',
 ]
