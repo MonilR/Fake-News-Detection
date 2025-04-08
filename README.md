@@ -7,13 +7,13 @@ Features
 - Detect fake news/reviews from input text.
 - Web interface for user input.
 - Django backend for prediction.
-- Cloud deployment (AWS).
+- Cloud deployment (AWS & Railway).
 - Optional: Bulk predictions via CSV upload.
     
 Tools
 - ML/NLP: Python, Scikit-learn, TensorFlow, Hugging Face.
 - Web: Django.
-- Deployment: AWS.
+- Deployment: AWS, Railway app.
     
 Getting Started
     
@@ -36,7 +36,8 @@ Run Django app:
 - python manage.py runserver    
     
 Deployment    
-- Host on AWS.    
+- Host on AWS (currently shutdown).   
+- Host on Railway app (https://fake-news-detection-production-7284.up.railway.app/). 
 
 Contributing    
 - Contributions are welcome! Open an issue or submit a PR.
