@@ -37,7 +37,8 @@ Run Django app:
     
 Deployment    
 - Host on AWS (currently shutdown).   
-- Host on Railway app (https://fake-news-detection-production-7284.up.railway.app/). 
+- Host on Railway app (https://fake-news-detection-production-7284.up.railway.app/).
+- Currently stopped hosting.  
 
 Contributing    
 - Contributions are welcome! Open an issue or submit a PR.
